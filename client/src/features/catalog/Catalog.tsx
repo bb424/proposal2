@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Product } from "../../app/models/product";
 import ProductList from "./ProductList";
+import axios from "axios";
 
 
 
@@ -9,8 +10,8 @@ export default function Catalog() {
 
     useEffect(() => {
         fetch('http://localhost:5000/api/products')
-            .then(response => response.json())
-            .then(data => setProducts(data))
+        .then(response => response.json())
+        .then(data => setProducts(data));
     }, []) /*the square brackets prevent multiple calls which would keep recursively calling requests*/
 
     
