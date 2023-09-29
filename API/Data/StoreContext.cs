@@ -11,5 +11,7 @@ namespace API.Data
         }
         //Creates a Table called Products based on fields in Product.cs
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<Basket> Baskets { get; set; }
     }
 }

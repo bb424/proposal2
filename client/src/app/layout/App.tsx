@@ -28,6 +28,7 @@ function App() {
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange}  />
       <Container>
         <Outlet />
+        
       </Container>
     </ThemeProvider>
   );
