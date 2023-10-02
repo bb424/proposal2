@@ -7,7 +7,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './app/router/roots';
+import { router } from './app/router/Routes';
+import { StoreProvider } from './app/context/StoreContext';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +17,9 @@ const root = ReactDOM.createRoot(
 //Strict mode will cause two requests, but wont affect development mode
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
   </React.StrictMode>
 );
 

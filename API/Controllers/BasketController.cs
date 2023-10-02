@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
 using API.Entities;
@@ -25,12 +21,13 @@ namespace API.Controllers
             var basket = await RetrieveBasket();
 
             if (basket == null) return NotFound();
+
             return MapBasketToDto(basket);
         }
 
         
 
-        [HttpPost] //api/basket?prudctId=3&quantity=2
+        [HttpPost] //api/basket?productId=3&quantity=2
         public async Task<ActionResult<BasketDto>> AddItemToBasket(int productId, int quantity)
         {
             //get basket
@@ -63,7 +60,7 @@ namespace API.Controllers
             //remove item or reduce quantity
             basket.DeleteItem(productId, quantity);
             //save changes
-            var result = await _context.SaveChangesAsync() > 0 ;
+            var result = await _context.SaveChangesAsync() > 0;
 
             if(result) return Ok();
 
